@@ -15,7 +15,7 @@ I am interested in this program because with this system, healthcare professiona
 
 - As a user, I want to be able to add a new patient to the hospital's patient record system 
 and specify name, age and symptom
-- As a user, I want to be able to view the list of patients in the system
-- As a user, I want to be able to mark the urgency of the patient's situation
+- As a user, I want to be able to view the list of patients in the hospital
+- As a user, I want to be able to mark the severity of the patient's condition
 - As a user, I want to be able to see the number of patients in the system
 - As a user, I want to be able to view the specific information of a patient
