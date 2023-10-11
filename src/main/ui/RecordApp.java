@@ -8,7 +8,6 @@ import java.util.Scanner;
 // Patient record application
 public class RecordApp {
     private PatientCollection collection;
-    private Patient patient;
     private Scanner input;
 
     // EFFECTS : runs the record application
