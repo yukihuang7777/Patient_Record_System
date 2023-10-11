@@ -3,9 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class PatientCollectionTest {
     private PatientCollection testPatientCollection;
@@ -71,6 +70,7 @@ public class PatientCollectionTest {
         testPatientCollection.updatePatientCondition("Sherry", "mild");
         assertEquals("mild",p2.getCondition());
 
+        testPatientCollection.updatePatientCondition("Bob", "severity");
         assertEquals("severity", p3.getCondition());
 
     }
