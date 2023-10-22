@@ -19,3 +19,5 @@ and specify name, age and symptom
 - As a user, I want to be able to mark the severity of the patient's condition
 - As a user, I want to be able to see the number of patients in the system
 - As a user, I want to be able to view the specific information of a patient
+- As a user, I want to be able to save my PatientCollection list to file if I so choose
+- As a user, I want to be able to load my PatientCollection list from file if I so choose
