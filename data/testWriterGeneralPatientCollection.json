@@ -1,0 +1,14 @@
+{"patients": [
+    {
+        "symptom": "headache",
+        "condition": "mild",
+        "name": "a",
+        "age": 20
+    },
+    {
+        "symptom": "stomachache",
+        "condition": "severity",
+        "name": "b",
+        "age": 25
+    }
+]}
