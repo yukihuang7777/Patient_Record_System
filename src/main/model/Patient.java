@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a patient having name, age, symptom and severity
-public class Patient {
+public class Patient implements Writable {
     private String name;        // patient name
     private int age;            // patient age
     private String symptom;     // the symptom of the patient
@@ -49,5 +52,15 @@ public class Patient {
     public String toString() {
         return "[ name = " + name + ", age = " + age + ", symptom = "
                 + symptom + ", condition = " + condition + " ]";
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("age", age);
+        json.put("symptom", symptom);
+        json.put("condition", condition);
+        return json;
     }
 }

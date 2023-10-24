@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a collection of patients
-public class PatientCollection {
+public class PatientCollection implements Writable {
     private List<Patient> patients;
 
     // EFFECTS : constructs a patient collection without any patient present
@@ -76,5 +80,21 @@ public class PatientCollection {
             }
         }
         return "Do not find the patient.";
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("patients", patientsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this PatientCollection as a JSON array
+    private JSONArray patientsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Patient t : patients) {
+            jsonArray.put(t.toJson());
+        }
+        return jsonArray;
     }
 }
