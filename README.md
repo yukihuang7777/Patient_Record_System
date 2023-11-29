@@ -33,3 +33,41 @@ to add the patient.
 - You can locate my visual component by the background of mainPanel(the manu).
 - You can save the state of my application by clicking the "Save" button.
 - You can reload the state of my application by clicking the "Load" button.
+
+
+# Phase 4: Task 2
+Wed Nov 29 13:02:05 PST 2023
+Patient hello is added.
+
+Wed Nov 29 13:02:07 PST 2023
+Show patient's list.
+
+Wed Nov 29 13:02:12 PST 2023
+Show patient's specific information.
+
+Wed Nov 29 13:02:16 PST 2023
+Show the number of patients.
+
+Wed Nov 29 13:02:18 PST 2023
+The File is saved.
+
+Wed Nov 29 13:02:30 PST 2023
+Patient world is added.
+
+Wed Nov 29 13:02:31 PST 2023
+Show patient's list.
+
+Wed Nov 29 13:02:36 PST 2023
+Show patient's specific information.
+
+Wed Nov 29 13:02:39 PST 2023
+Show patient's specific information.
+
+Wed Nov 29 13:02:42 PST 2023
+Show the number of patients.
+
+Wed Nov 29 13:02:44 PST 2023
+The File is saved.
+
+Wed Nov 29 13:02:45 PST 2023
+The File is loaded.

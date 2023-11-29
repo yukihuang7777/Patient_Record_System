@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Patient;
 import model.PatientCollection;
 import persistence.*;
@@ -161,6 +163,7 @@ public class RecordWindow extends JFrame implements ActionListener {
         String patient = String.join(";", pc.getPatient());
         JLabel patientList = new JLabel(patient);
         listPanel.add(patientList);
+        EventLog.getInstance().logEvent(new Event("Show patient's list."));
     }
 
     // MODIFIES: this
@@ -243,6 +246,7 @@ public class RecordWindow extends JFrame implements ActionListener {
     public void initializePatientInformation() {
         JLabel patientInfo = new JLabel(pc.viewSpecificInfo(text5.getText()));
         informationPanel.add(patientInfo);
+        EventLog.getInstance().logEvent(new Event("Show patient's specific information."));
     }
 
     // MODIFIES: this
@@ -277,6 +281,7 @@ public class RecordWindow extends JFrame implements ActionListener {
     public void initializeLabelToPatientNumberPanel() {
         JLabel label = new JLabel(String.valueOf(pc.getPatientNumber()));
         patientNumberPanel.add(label);
+        EventLog.getInstance().logEvent(new Event("Show the number of patients."));
     }
 
     // MODIFIES: this
@@ -377,6 +382,7 @@ public class RecordWindow extends JFrame implements ActionListener {
         writer.open();
         writer.write(pc);
         writer.close();
+        EventLog.getInstance().logEvent(new Event("The File is saved."));
     }
 
     //EFFECTS: save patient file
@@ -393,6 +399,7 @@ public class RecordWindow extends JFrame implements ActionListener {
     public void loadFile() throws IOException {
         reader = new JsonReader("./data/PatientCollection.json");
         pc = reader.read();
+        EventLog.getInstance().logEvent(new Event("The File is loaded."));
     }
 
     //EFFECTS: load patient file
@@ -409,6 +416,7 @@ public class RecordWindow extends JFrame implements ActionListener {
     public void addPatientToPatientCollection() {
         patient = new Patient(text1.getText(), Integer.parseInt(text2.getText()), text3.getText(), text4.getText());
         pc.addPatient(patient);
+        EventLog.getInstance().logEvent(new Event("Patient " + text1.getText() + " is added."));
     }
 
     // EFFECTS: performed action with given ActionEvent
@@ -425,6 +433,9 @@ public class RecordWindow extends JFrame implements ActionListener {
         } else if (e.getActionCommand().equals("load")) {
             loadPatientFile();
         } else if (e.getActionCommand().equals("quit")) {
+            for (Event event : EventLog.getInstance()) {
+                System.out.println(event.toString());
+            }
             System.exit(0);
         } else {
             moreActionPerformed(e);

@@ -1,20 +1,6 @@
-{"patients": [
-    {
-        "symptom": "headache",
-        "condition": "mild",
-        "name": "vivian",
-        "age": 19
-    },
-    {
-        "symptom": "headache",
-        "condition": "mild",
-        "name": "ivy",
-        "age": 19
-    },
-    {
-        "symptom": "hurt hand",
-        "condition": "mild",
-        "name": "sherry",
-        "age": 20
-    }
-]}
+{"patients": [{
+    "symptom": "1",
+    "condition": "1",
+    "name": "1",
+    "age": 1
+}]}

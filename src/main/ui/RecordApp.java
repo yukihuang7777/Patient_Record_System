@@ -2,6 +2,8 @@ package ui;
 
 import model.Patient;
 import model.PatientCollection;
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -42,6 +44,9 @@ public class RecordApp {
             command = command.toLowerCase();
 
             if (command.equals("q")) {
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.toString());
+                }
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -110,6 +115,7 @@ public class RecordApp {
 
         collection.addPatient(new Patient(name, age, symptom, condition));
         System.out.println("success!");
+        EventLog.getInstance().logEvent(new Event("Patient " + name + " is added."));
 
     }
 
@@ -132,17 +138,20 @@ public class RecordApp {
             System.out.println("updated false: wrong condition - please update again");
             doUpdatePatientCondition();
         }
+        EventLog.getInstance().logEvent(new Event("Patient's information updated."));
 
     }
 
     // EFFECTS : print the number of patient
     private void doGetPatientNumber() {
         System.out.println("The number of patient in collection is " + collection.getPatientNumber() + ".");
+        EventLog.getInstance().logEvent(new Event("Show the number of patients."));
     }
 
     // EFFECTS : print the list of patient's name
     private void doGetPatient() {
         System.out.println("The list of patients: " + collection.getPatient());
+        EventLog.getInstance().logEvent(new Event("Show patient's list."));
 
     }
 
@@ -152,6 +161,7 @@ public class RecordApp {
         String name = input.next();
 
         System.out.println(collection.viewSpecificInfo(name));
+        EventLog.getInstance().logEvent(new Event("Show patient's specific information."));
     }
 
     // EFFECTS: saves the PatientCollection to file
@@ -161,6 +171,7 @@ public class RecordApp {
             jsonWriter.write(collection);
             jsonWriter.close();
             System.out.println("Saved collection to " + JSON_STORE);
+            EventLog.getInstance().logEvent(new Event("The file is saved."));
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -175,6 +186,7 @@ public class RecordApp {
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
+        EventLog.getInstance().logEvent(new Event("The file is loaded."));
     }
 
 }
