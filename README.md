@@ -71,3 +71,7 @@ The File is saved.
 
 Wed Nov 29 13:02:45 PST 2023
 The File is loaded.
+
+# Phase 4: Task 3
+If I have more time, I plan to refactor the RecordWindow, split the contents into different classes, and write an 
+interface for similar parts. This makes it easier to check for code problems and add new features when needed.
